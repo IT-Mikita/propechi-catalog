@@ -1,0 +1,2688 @@
+<!DOCTYPE html><!-- This code was generated using AnimaApp.com. 
+This code is a high-fidelity prototype.
+Get developer-friendly React or HTML/CSS code for this project at: https://projects.animaapp.com?utm_source=hosted-code 
+23/05/2023 09:01:20 --><html data-scrapbook-source="https://lingering-disk-3546.animaapp.io/" data-scrapbook-create="20230523090155246" data-scrapbook-title="lingering-disk-3546.animaapp.io/"><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url("")
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+</style><meta charset="UTF-8"><meta name="viewport" content="width=1920, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><style>
+@import url("reset.min.css");
+
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("646c718a047c05a7291aef26.646c718b0fb737de96d16214.sMfw2tO.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --alto: #d9d9d9;
+  --black: #000000;
+  --eerie-black: #1b1b1b;
+  --red: #ff0000;
+  --white: #ffffff;
+ 
+  --font-size-l: 24px;
+  --font-size-m: 16px;
+  --font-size-s: 15px;
+  --font-size-xl: 25px;
+  --font-size-xs: 14px;
+  --font-size-xxs: 12px;
+ 
+  --font-family-tilda_sans-bold: "Tilda Sans-Bold", Helvetica;
+  --font-family-tilda_sans-light: "Tilda Sans-Light", Helvetica;
+  --font-family-tilda_sans-regular: "Tilda Sans-Regular", Helvetica;
+  --font-family-tilda_sans-semibold: "Tilda Sans-Semibold", Helvetica;
+}
+.tildasans-regular-normal-black-16px {
+  color: var(--black);
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tildasans-regular-normal-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-xxs);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tildasans-normal-black-24px {
+  color: var(--black);
+  font-family: var(--font-family-tilda_sans-semibold);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tildasans-regular-normal-black-14px {
+  color: var(--black);
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tildasans-regular-normal-red-16px {
+  color: var(--red);
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tildasans-regular-normal-white-16px {
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+}
+
+
+/* screen - frame-5 */
+
+.frame-5 {
+  background-color: var(--white);
+  border: 1px none;
+  height: 3154px;
+  mix-blend-mode: normal;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.frame-5 .rectangle-49-mg48iN {
+  background-color: var(--white);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: var(--black);
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: solid;
+  border-top-width: 1px;
+  height: 51px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.frame-5 .text_label-mg48iN {
+  color: var(--eerie-black);
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: 19px;
+  left: 1078px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 15px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .x8800-787-90-90-mg48iN {
+  background-color: transparent;
+  color: var(--eerie-black);
+  font-family: var(--font-family-tilda_sans-semibold);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: 19px;
+  left: 818px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 93px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .goodpropechiru-mg48iN {
+  background-color: transparent;
+  color: var(--eerie-black);
+  font-family: var(--font-family-tilda_sans-semibold);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: 19px;
+  left: 983px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 93px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-1xZgjM {
+  color: #161616;
+  font-family: var(--font-family-tilda_sans-light);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 300;
+  height: 19px;
+  left: 1253px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 15px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-n06Kgr {
+  color: #0c0c0c;
+  font-family: var(--font-family-tilda_sans-light);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 300;
+  height: 19px;
+  left: 1354px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 15px;
+  white-space: nowrap;
+  width: 238px;
+}
+
+.frame-5 .text_label-CoOWYm {
+  color: #161616;
+  font-family: var(--font-family-tilda_sans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: 19px;
+  left: 1637px;
+  letter-spacing: 0.40px;
+  text-align: left;
+  top: 15px;
+  white-space: nowrap;
+  width: 121px;
+}
+
+.frame-5 .x01-2-mg48iN {
+  background-color: transparent;
+  height: 85px;
+  left: 162px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 72px;
+  width: 303px;
+}
+
+.frame-5 .rectangle-50-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  border-radius: 20px;
+  height: 43px;
+  left: 485px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 83px;
+  width: 303px;
+}
+
+.frame-5 .free-animated-icon-search-8112604-2-mg48iN {
+  background-color: transparent;
+  height: 40px;
+  left: 729px;
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+  position: absolute;
+  top: 84px;
+  width: 40px;
+}
+
+.frame-5 .view-mg48iN {
+  left: 179px;
+  width: 108px;
+}
+
+.frame-5 .text_label-beBzfO {
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-1xZgjM {
+  left: 335px;
+  width: 108px;
+}
+
+.frame-5 .text_label-3psIvW {
+  height: auto;
+  left: 1px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-n06Kgr {
+  left: 507px;
+  width: 108px;
+}
+
+.frame-5 .text_label-lB6zRR {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-CoOWYm {
+  left: 661px;
+  width: 108px;
+}
+
+.frame-5 .text_label-l4id3y {
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-2sTTQg {
+  left: 825px;
+  width: 108px;
+}
+
+.frame-5 .text_label-F80Krf {
+  height: auto;
+  left: 12px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-HkkEfU {
+  left: 986px;
+  width: 108px;
+}
+
+.frame-5 .text_label-PQ4M4L {
+  height: auto;
+  left: 4px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-zuhmMD {
+  left: 1145px;
+  width: 108px;
+}
+
+.frame-5 .text_label-8tdDYC {
+  height: auto;
+  left: 16px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .view-GZUEss {
+  left: 1284px;
+  width: 151px;
+}
+
+.frame-5 .text_label-qxF6zR {
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: 151px;
+}
+
+.frame-5 .view-7F42va {
+  left: 1466px;
+  width: 125px;
+}
+
+.frame-5 .text_label-La0xnA {
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: 125px;
+}
+
+.frame-5 .view-EalwyR {
+  left: 1637px;
+  width: 98px;
+}
+
+.frame-5 .text_label-We0uXz {
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: -1px;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.frame-5 .line-11-mg48iN {
+  background-color: transparent;
+  height: 1px;
+  left: 162px;
+  object-fit: cover;
+  position: absolute;
+  top: 156px;
+  width: 1596px;
+}
+
+.frame-5 .line-12-mg48iN {
+  background-color: transparent;
+  height: 1px;
+  left: 162px;
+  object-fit: cover;
+  position: absolute;
+  top: 228px;
+  width: 1596px;
+}
+
+.frame-5 .free-animated-icon-map-6839004-2-mg48iN {
+  background-color: transparent;
+  height: 45px;
+  left: 194px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 2px;
+  width: 45px;
+}
+
+.frame-5 .free-icon-telegram-408839-6-mg48iN {
+  background-color: transparent;
+  height: 30px;
+  left: 1325px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 89px;
+  width: 29px;
+}
+
+.frame-5 .free-icon-telegram-408839-7-mg48iN {
+  background-color: transparent;
+  height: 35px;
+  left: 1370px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 87px;
+  width: 35px;
+}
+
+.frame-5 .free-icon-telegram-408839-8-mg48iN {
+  background-color: transparent;
+  height: 37px;
+  left: 1480px;
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+  position: absolute;
+  top: 86px;
+  width: 37px;
+}
+
+.frame-5 .free-icon-telegram-408839-9-mg48iN {
+  background-color: transparent;
+  height: 37px;
+  left: 1524px;
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+  position: absolute;
+  top: 86px;
+  width: 37px;
+}
+
+.frame-5 .free-icon-telegram-408839-10-mg48iN {
+  background-color: transparent;
+  height: 37px;
+  left: 1568px;
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+  position: absolute;
+  top: 86px;
+  width: 37px;
+}
+
+.frame-5 .x27-mg48iN {
+  background-color: transparent;
+  color: #171717;
+  font-family: var(--font-family-tilda_sans-light);
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: 300;
+  height: 18px;
+  left: 239px;
+  letter-spacing: 0.38px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .x-mg48iN {
+  background-color: transparent;
+  height: auto;
+  left: 485px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 255px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .span0-ziFB1f {
+}
+
+.frame-5 .span1-ziFB1f {
+}
+
+.frame-5 .text_label-2sTTQg {
+  color: var(--black);
+  font-family: var(--font-family-tilda_sans-bold);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 162px;
+  letter-spacing: 0.62px;
+  text-align: center;
+  top: 249px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .rectangle-65-mg48iN {
+  background-color: var(--alto);
+  border-bottom-style: none;
+  border-color: var(--black);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  height: 48px;
+  left: 359px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 317px;
+  width: 141px;
+}
+
+.frame-5 .text_label-HkkEfU {
+  height: auto;
+  left: 397px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 330px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .line-15-mg48iN {
+  background-color: transparent;
+  height: 1px;
+  left: 142px;
+  object-fit: cover;
+  position: absolute;
+  top: 364px;
+  width: 1636px;
+}
+
+.frame-5 .line-16-mg48iN {
+  background-color: transparent;
+  height: 1px;
+  left: 142px;
+  object-fit: cover;
+  position: absolute;
+  top: 623px;
+  width: 1636px;
+}
+
+.frame-5 .rectangle-67-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 41px;
+  left: 313px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 404px;
+  width: 142px;
+}
+
+.frame-5 .rectangle-68-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 41px;
+  left: 637px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 404px;
+  width: 141px;
+}
+
+.frame-5 .x0-mg48iN {
+  background-color: transparent;
+  height: auto;
+  left: 428px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 414px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .x890000-mg48iN {
+  background-color: transparent;
+  height: auto;
+  left: 705px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 414px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .rectangle-69-mg48iN {
+  background-color: var(--alto);
+  height: 6px;
+  left: 475px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 422px;
+  width: 142px;
+}
+
+.frame-5 .rectangle-70-mg48iN {
+  background-color: var(--red);
+  height: 15px;
+  left: 475px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 417px;
+  width: 17px;
+}
+
+.frame-5 .rectangle-71-mg48iN {
+  background-color: var(--red);
+  height: 15px;
+  left: 600px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 417px;
+  width: 17px;
+}
+
+.frame-5 .rectangle-73-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 557px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-84-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 589px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 659px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-79-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 313px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-74-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 803px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-75-mg48iN {
+  left: 1050px;
+  top: 484px;
+}
+
+.frame-5 .rectangle-82-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 1050px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 543px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-83-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 1293px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 543px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-76-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 1296px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-77-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 1542px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-78-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 313px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 543px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-80-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 558px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 543px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-81-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  left: 803px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 543px;
+  width: 224px;
+}
+
+.frame-5 .text_label-zuhmMD {
+  height: auto;
+  left: 575px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-GZUEss {
+  height: auto;
+  left: 630px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 671px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-7F42va {
+  height: auto;
+  left: 389px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-EalwyR {
+  height: auto;
+  left: 879px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-lYIZfR {
+  height: auto;
+  left: 1140px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-azmCzV {
+  height: auto;
+  left: 1104px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 555px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-zfSIM7 {
+  height: auto;
+  left: 1332px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 555px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-12svS7 {
+  height: auto;
+  left: 1332px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-crtpLg {
+  height: auto;
+  left: 1619px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 496px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-QE8SAV {
+  height: auto;
+  left: 390px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 555px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-iCUuxw {
+  height: auto;
+  left: 610px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 555px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .text_label-ZdLdmS {
+  height: auto;
+  left: 855px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 555px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .arrow-5-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 760px;
+  position: absolute;
+  top: 499px;
+  width: 15px;
+}
+
+.frame-5 .arrow-11-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 512px;
+  position: absolute;
+  top: 499px;
+  width: 15px;
+}
+
+.frame-5 .arrow-6-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1002px;
+  position: absolute;
+  top: 499px;
+  width: 15px;
+}
+
+.frame-5 .arrow-7-mg48iN {
+  left: 1247px;
+  top: 499px;
+}
+
+.frame-5 .arrow-14-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1247px;
+  position: absolute;
+  top: 558px;
+  width: 15px;
+}
+
+.frame-5 .arrow-15-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1490px;
+  position: absolute;
+  top: 558px;
+  width: 15px;
+}
+
+.frame-5 .arrow-8-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1479px;
+  position: absolute;
+  top: 499px;
+  width: 15px;
+}
+
+.frame-5 .arrow-9-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1728px;
+  position: absolute;
+  top: 499px;
+  width: 15px;
+}
+
+.frame-5 .arrow-10-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 512px;
+  position: absolute;
+  top: 558px;
+  width: 15px;
+}
+
+.frame-5 .arrow-12-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 757px;
+  position: absolute;
+  top: 558px;
+  width: 15px;
+}
+
+.frame-5 .arrow-13-mg48iN {
+  background-color: transparent;
+  height: 16px;
+  left: 1002px;
+  position: absolute;
+  top: 558px;
+  width: 15px;
+}
+
+.frame-5 .component-33-mg48iN {
+  background-color: transparent;
+  cursor: pointer;
+  height: 46px;
+  left: 1050px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 484px;
+  width: 224px;
+}
+
+.frame-5 .rectangle-75-cx3EfC {
+  left: 0px;
+  top: 0px;
+}
+
+.frame-5 .text_label-cx3EfC {
+  height: auto;
+  left: 66px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 8px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .arrow-7-cx3EfC {
+  left: 197px;
+  top: 15px;
+}
+
+.frame-5 .x24-363-mg48iN {
+  background-color: transparent;
+  height: auto;
+  left: 323px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 671px;
+  white-space: nowrap;
+  width: 280px;
+}
+
+.frame-5 .span0-Oe86qq {
+}
+
+.frame-5 .span1-Oe86qq {
+}
+
+.frame-5 .span2-Oe86qq {
+}
+
+.frame-5 .span3-Oe86qq {
+}
+
+.frame-5 .span4-Oe86qq {
+}
+
+.frame-5 .text_label-4j7Xvs {
+  height: auto;
+  left: 864px;
+  letter-spacing: 0.40px;
+  text-align: left;
+  top: 673px;
+  white-space: nowrap;
+  width: 126px;
+}
+
+.frame-5 .rectangle-88-mg48iN {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 23px;
+  left: 832px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 672px;
+  width: 23px;
+}
+
+.frame-5 .component-11-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 317px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 740px;
+  width: 304px;
+}
+
+.frame-5 .text_label-7DzAxI {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-7DzAxI {
+  left: 165px;
+}
+
+.frame-5 .icon-star-hzi61g {
+  left: 186px;
+}
+
+.frame-5 .icon-star-obQc0t {
+  left: 207px;
+}
+
+.frame-5 .text_label-hzi61g {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-BQtARQ {
+  left: 226px;
+}
+
+.frame-5 .component-34-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 317px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1174px;
+  width: 304px;
+}
+
+.frame-5 .text_label-9MrVGB {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-9MrVGB {
+  left: 165px;
+}
+
+.frame-5 .icon-star-w2Rgds {
+  left: 186px;
+}
+
+.frame-5 .icon-star-C3b8xw {
+  left: 207px;
+}
+
+.frame-5 .text_label-w2Rgds {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-oA8BgZ {
+  left: 226px;
+}
+
+.frame-5 .component-38-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 317px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1608px;
+  width: 304px;
+}
+
+.frame-5 .text_label-ZGekhT {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-ZGekhT {
+  left: 165px;
+}
+
+.frame-5 .icon-star-IxGXdM {
+  left: 186px;
+}
+
+.frame-5 .icon-star-Ki5XYs {
+  left: 207px;
+}
+
+.frame-5 .text_label-IxGXdM {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-xW4qRN {
+  left: 226px;
+}
+
+.frame-5 .component-42-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 317px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2042px;
+  width: 304px;
+}
+
+.frame-5 .text_label-UO52ww {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-UO52ww {
+  left: 165px;
+}
+
+.frame-5 .icon-star-x1r6tm {
+  left: 186px;
+}
+
+.frame-5 .icon-star-SgIGF6 {
+  left: 207px;
+}
+
+.frame-5 .text_label-x1r6tm {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-s60fKA {
+  left: 226px;
+}
+
+.frame-5 .component-12-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 641px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 740px;
+  width: 304px;
+}
+
+.frame-5 .text_label-DmDc1B {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-DmDc1B {
+  left: 165px;
+}
+
+.frame-5 .icon-star-m8xN66 {
+  left: 186px;
+}
+
+.frame-5 .icon-star-xMxl65 {
+  left: 207px;
+}
+
+.frame-5 .text_label-m8xN66 {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-UU0Nr5 {
+  left: 226px;
+}
+
+.frame-5 .component-35-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 641px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1174px;
+  width: 304px;
+}
+
+.frame-5 .text_label-Rsyngl {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-Rsyngl {
+  left: 165px;
+}
+
+.frame-5 .icon-star-gCcoWX {
+  left: 186px;
+}
+
+.frame-5 .icon-star-xUz4xx {
+  left: 207px;
+}
+
+.frame-5 .text_label-gCcoWX {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-lVLRYx {
+  left: 226px;
+}
+
+.frame-5 .component-39-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 641px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1608px;
+  width: 304px;
+}
+
+.frame-5 .text_label-Wx5M85 {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-Wx5M85 {
+  left: 165px;
+}
+
+.frame-5 .icon-star-NMDgdh {
+  left: 186px;
+}
+
+.frame-5 .icon-star-Jmp1jw {
+  left: 207px;
+}
+
+.frame-5 .text_label-NMDgdh {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-iugmtY {
+  left: 226px;
+}
+
+.frame-5 .component-43-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 641px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2042px;
+  width: 304px;
+}
+
+.frame-5 .text_label-PLqU9J {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-PLqU9J {
+  left: 165px;
+}
+
+.frame-5 .icon-star-WezHwz {
+  left: 186px;
+}
+
+.frame-5 .icon-star-RjzHxe {
+  left: 207px;
+}
+
+.frame-5 .text_label-WezHwz {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-5ndnfx {
+  left: 226px;
+}
+
+.frame-5 .component-13-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 965px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 740px;
+  width: 304px;
+}
+
+.frame-5 .text_label-kF1dY8 {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-kF1dY8 {
+  left: 165px;
+}
+
+.frame-5 .icon-star-wPseiM {
+  left: 186px;
+}
+
+.frame-5 .icon-star-6PzHLD {
+  left: 207px;
+}
+
+.frame-5 .text_label-wPseiM {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-taKPxV {
+  left: 226px;
+}
+
+.frame-5 .component-36-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 965px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1174px;
+  width: 304px;
+}
+
+.frame-5 .text_label-xfv14y {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-xfv14y {
+  left: 165px;
+}
+
+.frame-5 .icon-star-Ppsdkz {
+  left: 186px;
+}
+
+.frame-5 .icon-star-7oCwnt {
+  left: 207px;
+}
+
+.frame-5 .text_label-Ppsdkz {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-x4QAsX {
+  left: 226px;
+}
+
+.frame-5 .component-40-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 965px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1608px;
+  width: 304px;
+}
+
+.frame-5 .text_label-aB0tqz {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-aB0tqz {
+  left: 165px;
+}
+
+.frame-5 .icon-star-aXXkoN {
+  left: 186px;
+}
+
+.frame-5 .icon-star-kMjnFT {
+  left: 207px;
+}
+
+.frame-5 .text_label-aXXkoN {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-wGHuZG {
+  left: 226px;
+}
+
+.frame-5 .component-44-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 965px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2042px;
+  width: 304px;
+}
+
+.frame-5 .text_label-ADhrx3 {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-ADhrx3 {
+  left: 165px;
+}
+
+.frame-5 .icon-star-etermV {
+  left: 186px;
+}
+
+.frame-5 .icon-star-z1m3iz {
+  left: 207px;
+}
+
+.frame-5 .text_label-etermV {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-fGns7W {
+  left: 226px;
+}
+
+.frame-5 .component-14-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 1287px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 740px;
+  width: 304px;
+}
+
+.frame-5 .text_label-KqzhsU {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-KqzhsU {
+  left: 165px;
+}
+
+.frame-5 .icon-star-kxxRnH {
+  left: 186px;
+}
+
+.frame-5 .icon-star-NwAlky {
+  left: 207px;
+}
+
+.frame-5 .text_label-kxxRnH {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-ELxHps {
+  left: 226px;
+}
+
+.frame-5 .component-37-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 1287px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1174px;
+  width: 304px;
+}
+
+.frame-5 .text_label-E7dqld {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-E7dqld {
+  left: 165px;
+}
+
+.frame-5 .icon-star-H7k0q3 {
+  left: 186px;
+}
+
+.frame-5 .icon-star-PujRNM {
+  left: 207px;
+}
+
+.frame-5 .text_label-H7k0q3 {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-hevntB {
+  left: 226px;
+}
+
+.frame-5 .component-41-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 1287px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 1608px;
+  width: 304px;
+}
+
+.frame-5 .text_label-RHLiuS {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-RHLiuS {
+  left: 165px;
+}
+
+.frame-5 .icon-star-AY4Klz {
+  left: 186px;
+}
+
+.frame-5 .icon-star-PscUsH {
+  left: 207px;
+}
+
+.frame-5 .text_label-AY4Klz {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-xNT4ea {
+  left: 226px;
+}
+
+.frame-5 .component-45-mg48iN {
+  background-color: transparent;
+  height: 399px;
+  left: 1287px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2042px;
+  width: 304px;
+}
+
+.frame-5 .text_label-aksoin {
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.40px;
+  text-align: center;
+  top: 181px;
+  width: 192px;
+}
+
+.frame-5 .icon-star-aksoin {
+  left: 165px;
+}
+
+.frame-5 .icon-star-52n2s0 {
+  left: 186px;
+}
+
+.frame-5 .icon-star-UZntkn {
+  left: 207px;
+}
+
+.frame-5 .text_label-52n2s0 {
+  height: auto;
+  left: 86px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  top: 263px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .icon-star-kbhg3K {
+  left: 226px;
+}
+
+.frame-5 .line-17-mg48iN {
+  background-color: transparent;
+  height: 1px;
+  left: 317px;
+  object-fit: cover;
+  position: absolute;
+  top: 2494px;
+  width: 1274px;
+}
+
+.frame-5 .rectangle-89-mg48iN {
+  background-color: var(--red);
+  height: 29px;
+  left: 349px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2480px;
+  width: 87px;
+}
+
+.frame-5 .x1-2-3-4-5-6-7-8-mg48iN {
+  background-color: transparent;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.40px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 2547px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .span0-bXj5U1 {
+}
+
+.frame-5 .span1-bXj5U1 {
+}
+
+.frame-5 .span2-bXj5U1 {
+}
+
+.frame-5 .rectangle-48-mg48iN {
+  background-color: var(--black);
+  height: 626px;
+  left: -9px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 2690px;
+  width: 1929px;
+}
+
+.frame-5 .free-icon-telegram-408839-11-mg48iN {
+  background-color: transparent;
+  height: 30px;
+  left: 1279px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 90px;
+  width: 29px;
+}
+
+.frame-5 .arrow-7 {
+  background-color: transparent;
+  height: 16px;
+  position: absolute;
+  width: 15px;
+}
+
+.frame-5 .free-icon-heart-shape-14815-1 {
+  background-color: transparent;
+  height: 30px;
+  left: 258px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 14px;
+  width: 30px;
+}
+
+.frame-5 .icon-star {
+  background-color: transparent;
+  height: 17px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 324px;
+  width: 18px;
+}
+
+.frame-5 .line-10 {
+  background-color: transparent;
+  height: 1px;
+  left: 42px;
+  object-fit: cover;
+  position: absolute;
+  top: 310px;
+  width: 229px;
+}
+
+.frame-5 .rectangle-35 {
+  background-color: transparent;
+  height: 242px;
+  left: 0px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 304px;
+}
+
+.frame-5 .rectangle-36 {
+  background-color: var(--white);
+  height: 168px;
+  left: 0px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 231px;
+  width: 304px;
+}
+
+.frame-5 .rectangle-39 {
+  background-color: var(--alto);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 34px;
+  left: 32px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 354px;
+  width: 236px;
+}
+
+.frame-5 .rectangle-75 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  height: 46px;
+  mix-blend-mode: normal;
+  position: absolute;
+  width: 224px;
+}
+
+.frame-5 .star-5 {
+  background-color: transparent;
+  height: 17px;
+  left: 247px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 324px;
+  width: 18px;
+}
+
+.frame-5 .text_label {
+  background-color: transparent;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+}
+
+.frame-5 .view {
+  background-color: transparent;
+  height: 19px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 183px;
+}
+
+.frame-5 .x12235 {
+  background-color: transparent;
+  height: auto;
+  left: 85px;
+  letter-spacing: 0.30px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 167px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.frame-5 .x34000 {
+  background-color: transparent;
+  height: auto;
+  left: 20px;
+  letter-spacing: 0.60px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: 231px;
+  white-space: nowrap;
+  width: auto;
+}
+</style><style id="action-links-styles">
+@import url("css2.css");
+
+#anima-interface{
+  transition: all 0.5s ease-in-out;
+}
+
+#anima-watermark {
+  transition: all 0.5s ease-in-out;
+  display: none;
+}
+#anima-watermark-link{
+  position: fixed;
+  bottom:20px;
+  height:30px;
+  border-radius: 1000px;
+  background: #3B3B3B;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  text-decoration:none;
+  color:#fff;
+  padding:8px 16px 8px 11px;
+  font-family:Mulish, sans-serif;
+  font-size:12px;
+}
+#anima-watermark-link .text {
+  margin-left: 6px;
+}
+
+.omniview-anima-action-links .link{
+  height: 30px;
+  width: 30px;
+  border-radius: 1000px;
+  background: #3B3B3B;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  text-decoration:none;
+  color:#fff;
+}
+.omniview-anima-action-links #comment-link .text,.omniview-anima-action-links #code-link .text{
+  display:none;
+  font-size:12px;
+  margin-right:5px;
+}
+.omniview-anima-action-links #comment-link:hover,.omniview-anima-action-links #code-link:hover{
+  width:105px;
+}
+.omniview-anima-action-links #comment-link.pop-active,.omniview-anima-action-links #code-link.pop-active{
+  width:105px;
+  background: #FF6250;
+}
+.omniview-anima-action-links #comment-link.pop-active .text,.omniview-anima-action-links #code-link.pop-active .text{
+  display:block
+}
+.omniview-anima-action-links #comment-link:hover .text,.omniview-anima-action-links #code-link:hover .text{
+  display:block;
+}
+
+.link.navigation{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  width:auto;
+  height:32px;
+  color:#fff;
+  font-size:12px;
+  cursor:default;
+  padding:0 5px;
+}
+.link.navigation .icon{
+  margin:0 6px;
+  fill:none;
+  stroke:currentColor;
+  cursor:pointer;
+}
+.link.navigation .icon.disabled{
+  opacity:0.5;
+  cursor:default;
+}
+
+
+.link.navigation .home-icon{
+  margin-left:6px;
+  fill:currentColor;
+  stroke:currentColor;
+  cursor:pointer;
+}
+
+.omniview-anima-action-links .restart{
+  height: 30px;
+  padding:0 12px;
+  background: #3B3B3B;
+  border-radius: 1000px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#f1f1f1;
+  font-size: 12px;
+}
+
+.omniview-anima-action-links{
+  display:flex;
+  align-items:center;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-family:Mulish, sans-serif;
+  transition: all 0.5s ease-in-out;
+  opacity:1;
+}
+
+.omniview-anima-action-links > * + *{
+   margin-right: 0;
+   margin-left: 10px;
+}
+
+.idle{
+  opacity:0;
+  pointer-events:none;
+}
+
+#popoverOpener {
+  position: absolute;
+  left: 50%;
+  margin-left: -10vw;
+  text-align: center;
+  top: 45vh;
+  width: 20vw;
+}
+
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  font-family: "sans-serif";
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.popover.top {
+  margin-top: -12px
+}
+
+.popover.right {
+  margin-left: 10px
+}
+
+.popover.bottom {
+  margin-top: 10px
+}
+
+.popover.left {
+  margin-left: -10px
+}
+
+.popover-title {
+  padding: 8px 14px;
+  margin: 0;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0
+}
+
+.popover-content {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  overflow:hidden;
+  font-family:Mulish, sans-serif;
+}
+
+
+
+.popover>.arrow,.popover>.arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid
+}
+
+.popover>.arrow {
+  border-width: 11px
+}
+
+.popover>.arrow:after {
+  content: "";
+  border-width: 10px
+}
+
+.popover.top>.arrow {
+  bottom: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-color: #999;
+  border-top-color: rgba(0,0,0,.25);
+  border-bottom-width: 0
+}
+
+.popover.top>.arrow:after {
+  bottom: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-color: #fff;
+  border-bottom-width: 0
+}
+
+.popover.right>.arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-right-color: #999;
+  border-right-color: rgba(0,0,0,.25);
+  border-left-width: 0
+}
+
+.popover.right>.arrow:after {
+  bottom: -10px;
+  left: 1px;
+  content: " ";
+  border-right-color: #fff;
+  border-left-width: 0
+}
+
+.popover.bottom>.arrow {
+  top: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999;
+  border-bottom-color: rgba(0,0,0,.25)
+}
+
+.popover.bottom>.arrow:after {
+  top: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-width: 0;
+  border-bottom-color: #fff
+}
+
+.popover.left>.arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999;
+  border-left-color: rgba(0,0,0,.25)
+}
+
+.popover.left>.arrow:after {
+  right: 1px;
+  bottom: -10px;
+  content: " ";
+  border-right-width: 0;
+  border-left-color: #fff
+}
+
+
+
+#anima-comment-popover,#anima-code-popover{
+  background:#333333;
+  color:#fff;
+}
+
+#anima-comment-popover.top>.arrow,#anima-comment-popover.top>.arrow:after,#anima-code-popover.top>.arrow:after,#anima-code-popover.top>.arrow {
+  border-top-color:#333;  
+}
+
+#anima-comment-popover .btn,#anima-code-popover .btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 20px;
+  background: #FF6250;
+  color:#fff;
+  border-radius: 100px;
+  width: max-content;
+  text-decoration:none;
+}
+
+@media screen and (max-width: 550px) {
+  #anima-watermark-link {
+    padding: 6px !important;
+  }
+  #anima-watermark-link .text {
+    display: none !important;
+  }
+}
+
+</style></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="frame-5"><div class="container-center-horizontal"><div class="frame-5 screen " data-id="15:149"><div class="rectangle-49-mg48iN" data-id="15:188"></div><div class="text_label-mg48iN valign-text-middle text_label" data-id="15:189">Компания</div><div class="x8800-787-90-90-mg48iN valign-text-middle" data-id="15:190">8800-787-90-90</div><div class="goodpropechiru-mg48iN valign-text-middle" data-id="15:191">Good@propechi.ru</div><div class="text_label-1xZgjM valign-text-middle text_label" data-id="15:192">Монтаж</div><div class="text_label-n06Kgr valign-text-middle text_label" data-id="15:193">Оплата и доставка</div><div class="text_label-CoOWYm valign-text-middle text_label" data-id="15:194">Контакты</div><img class="x01-2-mg48iN" data-id="15:195" src="01-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/01-1-4@2x.png" alt="01 2"><div class="rectangle-50-mg48iN" data-id="15:196"></div><img class="free-animated-icon-search-8112604-2-mg48iN" data-id="15:197" src="free-animated-icon-search-8112604-1-4.gif" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-animated-icon-search-8112604-1-4.gif" alt="free-animated-icon-search-8112604 2"><div class="view-mg48iN view" data-id="15:198"><div class="text_label-beBzfO text_label tildasans-regular-normal-black-16px" data-id="I15:198;1:356">Печи для дома</div></div><div class="view-1xZgjM view" data-id="15:199"><div class="text_label-3psIvW text_label tildasans-regular-normal-black-16px" data-id="I15:199;1:367">Печи для бани</div></div><div class="view-n06Kgr view" data-id="15:200"><div class="text_label-lB6zRR text_label tildasans-regular-normal-black-16px" data-id="I15:200;1:376">Камины</div></div><div class="view-CoOWYm view" data-id="15:201"><div class="text_label-l4id3y text_label tildasans-regular-normal-black-16px" data-id="I15:201;1:383">Котлы</div></div><div class="view-2sTTQg view" data-id="15:202"><div class="text_label-F80Krf text_label tildasans-regular-normal-black-16px" data-id="I15:202;1:390">Дымоходы</div></div><div class="view-HkkEfU view" data-id="15:203"><div class="text_label-PQ4M4L text_label tildasans-regular-normal-black-16px" data-id="I15:203;1:397">Печное литье</div></div><div class="view-zuhmMD view" data-id="15:204"><div class="text_label-8tdDYC text_label tildasans-regular-normal-black-16px" data-id="I15:204;1:406">Барбекю</div></div><div class="view-GZUEss view" data-id="15:205"><div class="text_label-qxF6zR text_label tildasans-regular-normal-black-16px" data-id="I15:205;1:413">Товары для печника</div></div><div class="view-7F42va view" data-id="15:206"><div class="text_label-La0xnA text_label tildasans-regular-normal-black-16px" data-id="I15:206;1:420">Товары для бани</div></div><div class="view-EalwyR view" data-id="15:207"><div class="text_label-We0uXz text_label tildasans-regular-normal-black-16px" data-id="I15:207;1:427">Аксессуары</div></div><img class="line-11-mg48iN" data-id="15:208" src="line-11-1.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-11-1.svg" alt="Line 11"><img class="line-12-mg48iN" data-id="37:145" src="line-11-1.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-11-1.svg" alt="Line 12"><img class="free-animated-icon-map-6839004-2-mg48iN" data-id="15:209" src="free-animated-icon-map-6839004-1-4.gif" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-animated-icon-map-6839004-1-4.gif" alt="free-animated-icon-map-6839004 2"><img class="free-icon-telegram-408839-6-mg48iN" data-id="15:210" src="free-icon-telegram-408839-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-1-4@2x.png" alt="free-icon-telegram-408839 6"><img class="free-icon-telegram-408839-7-mg48iN" data-id="15:211" src="free-icon-telegram-408839-2-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-2-4@2x.png" alt="free-icon-telegram-408839 7"><img class="free-icon-telegram-408839-8-mg48iN" data-id="15:212" src="free-icon-telegram-408839-3-4.gif" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-3-4.gif" alt="free-icon-telegram-408839 8"><img class="free-icon-telegram-408839-9-mg48iN" data-id="15:213" src="free-icon-telegram-408839-4-4.gif" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-4-4.gif" alt="free-icon-telegram-408839 9"><img class="free-icon-telegram-408839-10-mg48iN" data-id="15:214" src="free-icon-telegram-408839-5-4.gif" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-5-4.gif" alt="free-icon-telegram-408839 10"><div class="x27-mg48iN valign-text-middle" data-id="15:215">Санкт-Петербург. Невский 27</div><div class="x-mg48iN tildasans-regular-normal-white-16px" data-id="15:226"><span class="span0-ziFB1f tildasans-regular-normal-black-16px">главная/каталог/</span><span class="span1-ziFB1f tildasans-regular-normal-red-16px">печи для дома</span></div><h1 class="text_label-2sTTQg text_label" data-id="38:147">Печи для дома и дачи</h1><div class="rectangle-65-mg48iN" data-id="38:194"></div><div class="text_label-HkkEfU text_label tildasans-regular-normal-black-16px" data-id="38:196">Фильтры</div><img class="line-15-mg48iN" data-id="38:197" src="line-15-1.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-15-1.svg" alt="Line 15"><img class="line-16-mg48iN" data-id="38:273" src="line-15-1.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-15-1.svg" alt="Line 16"><div class="rectangle-67-mg48iN" data-id="38:199"></div><div class="rectangle-68-mg48iN" data-id="38:204"></div><div class="x0-mg48iN tildasans-regular-normal-black-16px" data-id="38:201">0</div><div class="x890000-mg48iN tildasans-regular-normal-black-16px" data-id="38:205">890000</div><div class="rectangle-69-mg48iN" data-id="38:209"></div><div class="rectangle-70-mg48iN" data-id="38:210"></div><div class="rectangle-71-mg48iN" data-id="38:211"></div><div class="rectangle-73-mg48iN" data-id="38:217"></div><div class="rectangle-84-mg48iN" data-id="38:271"></div><div class="rectangle-79-mg48iN" data-id="38:235"></div><div class="rectangle-74-mg48iN" data-id="38:220"></div><div class="rectangle-75-mg48iN rectangle-75" data-id="38:223"></div><div class="rectangle-82-mg48iN" data-id="38:244"></div><div class="rectangle-83-mg48iN" data-id="38:247"></div><div class="rectangle-76-mg48iN" data-id="38:226"></div><div class="rectangle-77-mg48iN" data-id="38:229"></div><div class="rectangle-78-mg48iN" data-id="38:232"></div><div class="rectangle-80-mg48iN" data-id="38:238"></div><div class="rectangle-81-mg48iN" data-id="38:241"></div><div class="text_label-zuhmMD text_label tildasans-regular-normal-black-16px" data-id="38:218">Материал топки и печи</div><div class="text_label-GZUEss text_label tildasans-regular-normal-black-16px" data-id="38:272">По популярности</div><div class="text_label-7F42va text_label tildasans-regular-normal-black-16px" data-id="38:236">Бренды</div><div class="text_label-EalwyR text_label tildasans-regular-normal-black-16px" data-id="38:221">По типу</div><div class="text_label-lYIZfR text_label tildasans-regular-normal-black-16px" data-id="38:224">Опции</div><div class="text_label-azmCzV text_label tildasans-regular-normal-black-16px" data-id="38:245">Выход дымохода</div><div class="text_label-zfSIM7 text_label tildasans-regular-normal-black-16px" data-id="38:248">Длительное горение</div><div class="text_label-12svS7 text_label tildasans-regular-normal-black-16px" data-id="38:227">Объем помещения</div><div class="text_label-crtpLg text_label tildasans-regular-normal-black-16px" data-id="38:230">Дверка</div><div class="text_label-QE8SAV text_label tildasans-regular-normal-black-16px" data-id="38:233">Дверка</div><div class="text_label-iCUuxw text_label tildasans-regular-normal-black-16px" data-id="38:239">Расположение</div><div class="text_label-ZdLdmS text_label tildasans-regular-normal-black-16px" data-id="38:242">Расположение</div><img class="arrow-5-mg48iN" data-id="38:219" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 5"><img class="arrow-11-mg48iN" data-id="38:237" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 11"><img class="arrow-6-mg48iN" data-id="38:222" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 6"><img class="arrow-7-mg48iN arrow-7" data-id="38:225" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 7"><img class="arrow-14-mg48iN" data-id="38:246" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 14"><img class="arrow-15-mg48iN" data-id="38:249" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 15"><img class="arrow-8-mg48iN" data-id="38:228" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 8"><img class="arrow-9-mg48iN" data-id="38:231" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 9"><img class="arrow-10-mg48iN" data-id="38:234" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 10"><img class="arrow-12-mg48iN" data-id="38:240" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 12"><img class="arrow-13-mg48iN" data-id="38:243" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 13"><a href="https://lingering-disk-3546.animaapp.io/component-34"><div class="component-33-mg48iN" data-id="38:266"><div class="rectangle-75-cx3EfC rectangle-75" data-id="I38:266;38:259"></div><div class="text_label-cx3EfC text_label tildasans-regular-normal-black-16px" data-id="I38:266;38:260">Опции</div><img class="arrow-7-cx3EfC arrow-7" data-id="I38:266;38:261" src="arrow-5.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c80de8d3d3300dcf63741/img/arrow-5.svg" alt="Arrow 7"></div></a><p class="x24-363-mg48iN tildasans-regular-normal-white-16px" data-id="38:270"><span class="span0-Oe86qq tildasans-regular-normal-black-16px">Товаров: </span><span class="span1-Oe86qq tildasans-regular-normal-red-16px">24</span><span class="span2-Oe86qq tildasans-regular-normal-black-16px"> из </span><span class="span3-Oe86qq tildasans-regular-normal-red-16px">363&nbsp;&nbsp;</span><span class="span4-Oe86qq tildasans-regular-normal-black-16px">Сортировать:</span></p><div class="text_label-4j7Xvs text_label tildasans-regular-normal-black-16px" data-id="38:274">Только в наличии</div><div class="rectangle-88-mg48iN" data-id="38:275"></div><div class="component-11-mg48iN" data-id="38:276"><img class="rectangle-35" data-id="I38:276;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:276;5:70"></div><p class="text_label-7DzAxI text_label tildasans-regular-normal-black-16px" data-id="I38:276;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:276;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:276;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:276;5:87">34000 руб</div><img class="icon-star-7DzAxI icon-star" data-id="I38:276;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-hzi61g icon-star" data-id="I38:276;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-obQc0t icon-star" data-id="I38:276;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:276;5:93"></div><div class="text_label-hzi61g text_label tildasans-regular-normal-black-14px" data-id="I38:276;5:94">В корзину</div><img class="icon-star-BQtARQ icon-star" data-id="I38:276;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:276;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:276;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-34-mg48iN" data-id="38:336"><img class="rectangle-35" data-id="I38:336;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:336;5:70"></div><p class="text_label-9MrVGB text_label tildasans-regular-normal-black-16px" data-id="I38:336;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:336;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:336;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:336;5:87">34000 руб</div><img class="icon-star-9MrVGB icon-star" data-id="I38:336;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-w2Rgds icon-star" data-id="I38:336;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-C3b8xw icon-star" data-id="I38:336;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:336;5:93"></div><div class="text_label-w2Rgds text_label tildasans-regular-normal-black-14px" data-id="I38:336;5:94">В корзину</div><img class="icon-star-oA8BgZ icon-star" data-id="I38:336;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:336;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:336;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-38-mg48iN" data-id="38:396"><img class="rectangle-35" data-id="I38:396;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:396;5:70"></div><p class="text_label-ZGekhT text_label tildasans-regular-normal-black-16px" data-id="I38:396;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:396;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:396;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:396;5:87">34000 руб</div><img class="icon-star-ZGekhT icon-star" data-id="I38:396;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-IxGXdM icon-star" data-id="I38:396;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-Ki5XYs icon-star" data-id="I38:396;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:396;5:93"></div><div class="text_label-IxGXdM text_label tildasans-regular-normal-black-14px" data-id="I38:396;5:94">В корзину</div><img class="icon-star-xW4qRN icon-star" data-id="I38:396;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:396;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:396;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-42-mg48iN" data-id="38:456"><img class="rectangle-35" data-id="I38:456;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:456;5:70"></div><p class="text_label-UO52ww text_label tildasans-regular-normal-black-16px" data-id="I38:456;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:456;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:456;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:456;5:87">34000 руб</div><img class="icon-star-UO52ww icon-star" data-id="I38:456;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-x1r6tm icon-star" data-id="I38:456;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-SgIGF6 icon-star" data-id="I38:456;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:456;5:93"></div><div class="text_label-x1r6tm text_label tildasans-regular-normal-black-14px" data-id="I38:456;5:94">В корзину</div><img class="icon-star-s60fKA icon-star" data-id="I38:456;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:456;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:456;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-12-mg48iN" data-id="38:277"><img class="rectangle-35" data-id="I38:277;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:277;5:70"></div><p class="text_label-DmDc1B text_label tildasans-regular-normal-black-16px" data-id="I38:277;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:277;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:277;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:277;5:87">34000 руб</div><img class="icon-star-DmDc1B icon-star" data-id="I38:277;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-m8xN66 icon-star" data-id="I38:277;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-xMxl65 icon-star" data-id="I38:277;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:277;5:93"></div><div class="text_label-m8xN66 text_label tildasans-regular-normal-black-14px" data-id="I38:277;5:94">В корзину</div><img class="icon-star-UU0Nr5 icon-star" data-id="I38:277;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:277;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:277;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-35-mg48iN" data-id="38:337"><img class="rectangle-35" data-id="I38:337;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:337;5:70"></div><p class="text_label-Rsyngl text_label tildasans-regular-normal-black-16px" data-id="I38:337;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:337;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:337;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:337;5:87">34000 руб</div><img class="icon-star-Rsyngl icon-star" data-id="I38:337;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-gCcoWX icon-star" data-id="I38:337;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-xUz4xx icon-star" data-id="I38:337;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:337;5:93"></div><div class="text_label-gCcoWX text_label tildasans-regular-normal-black-14px" data-id="I38:337;5:94">В корзину</div><img class="icon-star-lVLRYx icon-star" data-id="I38:337;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:337;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:337;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-39-mg48iN" data-id="38:397"><img class="rectangle-35" data-id="I38:397;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:397;5:70"></div><p class="text_label-Wx5M85 text_label tildasans-regular-normal-black-16px" data-id="I38:397;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:397;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:397;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:397;5:87">34000 руб</div><img class="icon-star-Wx5M85 icon-star" data-id="I38:397;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-NMDgdh icon-star" data-id="I38:397;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-Jmp1jw icon-star" data-id="I38:397;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:397;5:93"></div><div class="text_label-NMDgdh text_label tildasans-regular-normal-black-14px" data-id="I38:397;5:94">В корзину</div><img class="icon-star-iugmtY icon-star" data-id="I38:397;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:397;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:397;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-43-mg48iN" data-id="38:457"><img class="rectangle-35" data-id="I38:457;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:457;5:70"></div><p class="text_label-PLqU9J text_label tildasans-regular-normal-black-16px" data-id="I38:457;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:457;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:457;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:457;5:87">34000 руб</div><img class="icon-star-PLqU9J icon-star" data-id="I38:457;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-WezHwz icon-star" data-id="I38:457;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-RjzHxe icon-star" data-id="I38:457;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:457;5:93"></div><div class="text_label-WezHwz text_label tildasans-regular-normal-black-14px" data-id="I38:457;5:94">В корзину</div><img class="icon-star-5ndnfx icon-star" data-id="I38:457;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:457;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:457;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-13-mg48iN" data-id="38:278"><img class="rectangle-35" data-id="I38:278;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:278;5:70"></div><p class="text_label-kF1dY8 text_label tildasans-regular-normal-black-16px" data-id="I38:278;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:278;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:278;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:278;5:87">34000 руб</div><img class="icon-star-kF1dY8 icon-star" data-id="I38:278;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-wPseiM icon-star" data-id="I38:278;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-6PzHLD icon-star" data-id="I38:278;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:278;5:93"></div><div class="text_label-wPseiM text_label tildasans-regular-normal-black-14px" data-id="I38:278;5:94">В корзину</div><img class="icon-star-taKPxV icon-star" data-id="I38:278;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:278;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:278;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-36-mg48iN" data-id="38:338"><img class="rectangle-35" data-id="I38:338;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:338;5:70"></div><p class="text_label-xfv14y text_label tildasans-regular-normal-black-16px" data-id="I38:338;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:338;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:338;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:338;5:87">34000 руб</div><img class="icon-star-xfv14y icon-star" data-id="I38:338;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-Ppsdkz icon-star" data-id="I38:338;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-7oCwnt icon-star" data-id="I38:338;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:338;5:93"></div><div class="text_label-Ppsdkz text_label tildasans-regular-normal-black-14px" data-id="I38:338;5:94">В корзину</div><img class="icon-star-x4QAsX icon-star" data-id="I38:338;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:338;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:338;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-40-mg48iN" data-id="38:398"><img class="rectangle-35" data-id="I38:398;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:398;5:70"></div><p class="text_label-aB0tqz text_label tildasans-regular-normal-black-16px" data-id="I38:398;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:398;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:398;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:398;5:87">34000 руб</div><img class="icon-star-aB0tqz icon-star" data-id="I38:398;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-aXXkoN icon-star" data-id="I38:398;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-kMjnFT icon-star" data-id="I38:398;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:398;5:93"></div><div class="text_label-aXXkoN text_label tildasans-regular-normal-black-14px" data-id="I38:398;5:94">В корзину</div><img class="icon-star-wGHuZG icon-star" data-id="I38:398;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:398;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:398;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-44-mg48iN" data-id="38:458"><img class="rectangle-35" data-id="I38:458;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:458;5:70"></div><p class="text_label-ADhrx3 text_label tildasans-regular-normal-black-16px" data-id="I38:458;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:458;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:458;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:458;5:87">34000 руб</div><img class="icon-star-ADhrx3 icon-star" data-id="I38:458;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-etermV icon-star" data-id="I38:458;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-z1m3iz icon-star" data-id="I38:458;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:458;5:93"></div><div class="text_label-etermV text_label tildasans-regular-normal-black-14px" data-id="I38:458;5:94">В корзину</div><img class="icon-star-fGns7W icon-star" data-id="I38:458;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:458;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:458;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-14-mg48iN" data-id="38:279"><img class="rectangle-35" data-id="I38:279;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:279;5:70"></div><p class="text_label-KqzhsU text_label tildasans-regular-normal-black-16px" data-id="I38:279;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:279;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:279;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:279;5:87">34000 руб</div><img class="icon-star-KqzhsU icon-star" data-id="I38:279;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-kxxRnH icon-star" data-id="I38:279;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-NwAlky icon-star" data-id="I38:279;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:279;5:93"></div><div class="text_label-kxxRnH text_label tildasans-regular-normal-black-14px" data-id="I38:279;5:94">В корзину</div><img class="icon-star-ELxHps icon-star" data-id="I38:279;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:279;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:279;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-37-mg48iN" data-id="38:339"><img class="rectangle-35" data-id="I38:339;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:339;5:70"></div><p class="text_label-E7dqld text_label tildasans-regular-normal-black-16px" data-id="I38:339;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:339;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:339;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:339;5:87">34000 руб</div><img class="icon-star-E7dqld icon-star" data-id="I38:339;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-H7k0q3 icon-star" data-id="I38:339;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-PujRNM icon-star" data-id="I38:339;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:339;5:93"></div><div class="text_label-H7k0q3 text_label tildasans-regular-normal-black-14px" data-id="I38:339;5:94">В корзину</div><img class="icon-star-hevntB icon-star" data-id="I38:339;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:339;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:339;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-41-mg48iN" data-id="38:399"><img class="rectangle-35" data-id="I38:399;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:399;5:70"></div><p class="text_label-RHLiuS text_label tildasans-regular-normal-black-16px" data-id="I38:399;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:399;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:399;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:399;5:87">34000 руб</div><img class="icon-star-RHLiuS icon-star" data-id="I38:399;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-AY4Klz icon-star" data-id="I38:399;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-PscUsH icon-star" data-id="I38:399;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:399;5:93"></div><div class="text_label-AY4Klz text_label tildasans-regular-normal-black-14px" data-id="I38:399;5:94">В корзину</div><img class="icon-star-xNT4ea icon-star" data-id="I38:399;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:399;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:399;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><div class="component-45-mg48iN" data-id="38:459"><img class="rectangle-35" data-id="I38:459;5:69" src="rectangle-35-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/rectangle-35-4@2x.png" alt="Rectangle 35"><div class="rectangle-36" data-id="I38:459;5:70"></div><p class="text_label-aksoin text_label tildasans-regular-normal-black-16px" data-id="I38:459;5:71">Дровяная банная печь <br>Добросталь Фредерика Стронг<br>со стеклянной топочной дверцей</p><div class="x12235 tildasans-regular-normal-black-12px" data-id="I38:459;5:81">Артикул: 12235</div><img class="line-10" data-id="I38:459;5:86" src="line-10-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-10-16.svg" alt="Line 10"><div class="x34000 tildasans-normal-black-24px" data-id="I38:459;5:87">34000 руб</div><img class="icon-star-aksoin icon-star" data-id="I38:459;5:88" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-52n2s0 icon-star" data-id="I38:459;5:89" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="icon-star-UZntkn icon-star" data-id="I38:459;5:90" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><div class="rectangle-39" data-id="I38:459;5:93"></div><div class="text_label-52n2s0 text_label tildasans-regular-normal-black-14px" data-id="I38:459;5:94">В корзину</div><img class="icon-star-kbhg3K icon-star" data-id="I38:459;5:91" src="star-1-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-1-16.svg" alt="icon-star"><img class="star-5" data-id="I38:459;5:92" src="star-5-16.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/star-5-16.svg" alt="Star 5"><img class="free-icon-heart-shape-14815-1" data-id="I38:459;5:246" src="free-icon-heart-shape-14815-1-4@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-heart-shape-14815-1-4@2x.png" alt="free-icon-heart-shape-14815 1"></div><img class="line-17-mg48iN" data-id="38:516" src="line-17-1.svg" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c7ca915a75aeace04401a/img/line-17-1.svg" alt="Line 17"><div class="rectangle-89-mg48iN" data-id="38:517"></div><div class="x1-2-3-4-5-6-7-8-mg48iN tildasans-regular-normal-white-16px" data-id="38:518"><span class="span0-bXj5U1 tildasans-regular-normal-black-16px">1-</span><span class="span1-bXj5U1 tildasans-regular-normal-red-16px">2</span><span class="span2-bXj5U1 tildasans-regular-normal-black-16px">-3-4-5-6-7-8</span></div><div class="rectangle-48-mg48iN" data-id="38:519"></div><img class="free-icon-telegram-408839-11-mg48iN" data-id="58:373" src="free-icon-telegram-408839-11-1@2x.png" anima-src="https://cdn.animaapp.com/projects/646c718d8de3d54a06f7b206/releases/646c77910fb737de96d1622f/img/free-icon-telegram-408839-11-1@2x.png" alt="free-icon-telegram-408839 11"></div></div><div id="t_preload_links"></div><div id="anima-interface" data-turbo-permanent="true" class="idle"><!---->
+        <div id="anima-comment-popover" class="popover top" role="tooltip" style="left: -205px; top: -220px;">
+          <div class="arrow" style="margin-left: 128px;"></div>
+          <div class="popover-content" style="align-items:center">
+            <div style="display:flex;flex-direction:column;height: 100%;padding: 20px;">
+              <h3 style="font-size:18px;margin-bottom:10px;font-weight:500;line-height: 26px;font-family: Roslindale;">
+                Leave feedback and collaborate
+              </h3>
+              <p style="font-size:12px;margin-bottom:20px;font-weight:400;line-height: 20px;">
+                Login to your account to leave comments. Don't have an account? Sign up for free!
+              </p>
+              <a target="_blank" rel="noopener noreferrer" class="btn" href="https://projects.animaapp.com/p/undefined/s/?mode=comments&amp;utm_campaign=add-comment&amp;utm_medium=add-comment&amp;utm_source=animaapp.io">Add comment</a>
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:center;padding-right:20px">
+              <img src="comment-illustration.svg">
+            </div>
+          </div>
+        </div>
+        <div id="anima-code-popover" class="popover top" role="tooltip" style="left: -205px; top: -220px;">
+          <div class="arrow" style="margin-left: 168px;"></div>
+          <div class="popover-content" style="align-items:center">
+            <div style="display:flex;flex-direction:column;height: 100%;padding: 20px;">
+              <h3 style="font-size:18px;margin-bottom:10px;font-weight:500;line-height: 26px;font-family: Roslindale;">
+                Get clean code you’ll love with Anima
+              </h3>
+              <p style="font-size:12px;margin-bottom:20px;font-weight:400;line-height: 20px;">
+                Login and easily export HTML, React or Vue of this prototype.
+                Don’t have an account? Sign up for free!
+              </p>
+              <a target="_blank" rel="noopener noreferrer" class="btn" href="https://projects.animaapp.com/p/undefined/s/?mode=code&amp;utm_campaign=get-code&amp;utm_medium=get-code&amp;utm_source=animaapp.io">
+                Get code
+              </a>
+            </div>
+
+            <img src="code-illustration.svg">
+          </div>
+        </div>
+        <div class="omniview-anima-action-links" id="actions-wrap">
+          <div class="omniview-anima-action-links">
+            <div id="page-nav" class="link navigation" style="display: none;">
+              <svg id="homepage-icon" class="home-icon" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.151 11a.25.25 0 01-.167-.436l4.349-3.913a.25.25 0 01.334 0l4.349 3.913a.25.25 0 01-.167.436H8.15zM16 12H9v4a1 1 0 001 1h5a1 1 0 001-1v-4z" fill="#fff"></path>
+              </svg>
+
+              <svg class="icon" id="arrow-left" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+
+              <span id="page-num"></span>
+
+              <svg class="icon" id="arrow-right" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+
+            <a class="link" id="comment-link" target="_blank" style="display: none;">
+              <span class="text">Comment</span>
+              <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.301 15.137a.551.551 0 01.199-.55c.314-.23.554-.554.718-.965A6.015 6.015 0 014 10 6.006 6.006 0   0110.001 4 6.006 6.006 0 0116 10.001 6.006 6.006 0 019.999 16a5.98 5.98 0 01-3.095-.86 3.165 3.165 0 01-1.65.438 3.6  3.6 0 01-.57-.044c-.191-.03-.34-.186-.383-.397z" fill="#fff"></path>
+              </svg>
+            </a>
+
+            <a class="link" id="code-link" target="_blank" style="display: none;">
+              <span class="text">Get Code</span>
+              <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15.667a1 1 0 01-.707-1.708l3.626-3.625-3.626-3.626a1 1 0 111.415-1.415l4.333 4.333a1 1 0 010 1.414l-4.333 4.333a.993.993 0 01-.707.294zM7.333 5a1 1 0 01.707 1.708l-3.626 3.625 3.627 3.626a1 1 0 11-1.415 1.415L2.293 11.04a1 1 0 010-1.415l4.333-4.333A.992.992 0 017.333 5z" fill="#fff"></path>
+              </svg>
+            </a>
+
+            <div class="restart" id="restart-btn" style="display: none;">
+              <svg style="margin-right: 6px" width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 11.817A5.017 5.017 0 01.994 6.811c0-.207.169-.375.375-.375s.375.168.375.375A4.265 4.265 0 006 11.067a4.265 4.265 0 004.256-4.256A4.265 4.265 0 006 2.555a.376.376 0 01-.375-.376c0-.206.169-.374.375-.374a5.017 5.017 0 015.006 5.006A5.017 5.017 0 016 11.817z" fill="#fff"></path>
+                <path d="M6.75 4.237a.37.37 0 01-.263-.112l-1.65-1.65a.363.363 0 010-.525L6.487.3c.15-.15.375-.15.525 0 .15.15.15.375 0 .525L5.625 2.212 7.012 3.6c.15.15.15.375 0 .525-.056.075-.15.112-.262.112z" fill="#fff"></path>
+              </svg>
+              Restart
+            </div>
+          </div>
+        </div>
+      <!----></div><div id="anima-watermark" style="display: none;" class="idle"><!----><a id="anima-watermark-link" target="_blank" href="https://www.animaapp.com/?utm_campaign=public-link-banner&amp;utm_medium=public-link-banner&amp;utm_source=animaapp.io" style="right: 20px; left: auto; padding: 6px;">
+        <svg width="20" height="20" viewBox="0 0 20 20" id="anima-logo-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.09293 3.00001H16.5327C16.5484 2.99976 16.5638 3.00351 16.5776 3.01092C16.5913 3.01832 16.603 3.02913 16.6114 3.04231C16.6198 3.0555 16.6247 3.07061 16.6256 3.08622C16.6265 3.10182 16.6233 3.1174 16.6165 3.13146C15.5441 5.29706 13.9276 7.14699 11.9253 8.50009C8.69117 10.6822 5.43436 10.9075 4.09389 10.9196C4.08165 10.9198 4.06949 10.9176 4.05811 10.9131C4.04672 10.9086 4.03636 10.9019 4.02761 10.8933C4.01887 10.8848 4.01192 10.8745 4.00718 10.8633C4.00244 10.852 4 10.8399 4 10.8276V3.09198C4 3.07982 4.00241 3.06778 4.00709 3.05656C4.01177 3.04534 4.01863 3.03516 4.02728 3.02661C4.03592 3.01805 4.04617 3.0113 4.05744 3.00673C4.06871 3.00217 4.08077 2.99988 4.09293 3.00001Z" fill="#FF6250"></path>
+          <path d="M6.77772 17.4446C8.31182 17.4446 9.55545 16.201 9.55545 14.6669C9.55545 13.1328 8.31182 11.8892 6.77772 11.8892C5.24363 11.8892 4 13.1328 4 14.6669C4 16.201 5.24363 17.4446 6.77772 17.4446Z" fill="#FFDF90"></path>
+          <path d="M12.4559 17.2799C11.6701 16.9799 11.2522 16.1151 11.5185 15.3496L13.6153 9.3656C13.884 8.60003 14.7387 8.22302 15.5245 8.52299C16.3103 8.82344 16.7282 9.68772 16.4619 10.4538L14.365 16.4377C14.0964 17.2033 13.2417 17.5808 12.4559 17.2799Z" fill="#3366FF"></path>
+        </svg>
+        <span class="text" style="display: none;">Made with Anima</span>
+      </a><!----></div></body></html>
